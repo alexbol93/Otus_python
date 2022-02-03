@@ -18,7 +18,7 @@ from typing import List
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from homework_04.jsonplaceholder_requests import fetch_users, fetch_posts
-from homework_04.models import engine, Base, User, Post, async_session
+from homework_04.models import engine, Base, User, Post, Session
 
 
 async def create_table():
@@ -32,7 +32,7 @@ async def create_users(users_data: List[User]) -> List[User]:
         User(name=item["name"], username=item["username"], email=item["email"])
         for item in users_data
     ]
-    async with async_session() as session:  # type: AsyncSession
+    async with Session() as session:  # type: AsyncSession
         async with session.begin():
             session.add_all(users)
     return users
@@ -43,7 +43,7 @@ async def create_posts(posts_data: List[Post]) -> List[Post]:
         Post(user_id=item["userId"], title=item["title"], body=item["body"])
         for item in posts_data
     ]
-    async with async_session() as session:  # type: AsyncSession
+    async with Session() as session:  # type: AsyncSession
         async with session.begin():
             session.add_all(posts)
 

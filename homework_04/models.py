@@ -23,8 +23,8 @@ from sqlalchemy import (
 
 PG_CONN_URI = os.environ.get("SQLALCHEMY_PG_CONN_URI") or "postgresql+asyncpg://postgres:password@localhost/postgres"
 
-engine = create_async_engine(PG_CONN_URI, echo=True,)
-async_session = sessionmaker(engine, expire_on_commit=False, class_=AsyncSession)
+engine = create_async_engine("postgresql+asyncpg://user:password@localhost/blog_app", echo=True,)
+Session = sessionmaker(engine, expire_on_commit=False, class_=AsyncSession)
 Base = declarative_base()
 
 
