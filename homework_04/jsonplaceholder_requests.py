@@ -22,7 +22,7 @@ async def fetch_posts() -> dict:
     logging.info(f"Get posts from {POSTS_DATA_URL}")
     async with ClientSession() as session:
         result = await fetch_json(session, POSTS_DATA_URL)
-    logging.info(f"get result from json from {POSTS_DATA_URL}: {result}")
+    logging.info(f"get result from  {POSTS_DATA_URL}: {result}")
     return result
 
 
