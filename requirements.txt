@@ -20,3 +20,8 @@ starlette==0.17.1
 typing_extensions==4.0.1
 uvicorn==0.17.0
 yarl==1.7.2
+Flask==2.0.2
+itsdangerous==2.0.1
+Jinja2==3.0.3
+MarkupSafe==2.1.0
+Werkzeug==2.0.3
